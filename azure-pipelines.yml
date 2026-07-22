@@ -1,34 +1,34 @@
 trigger:
   branches:
     include:
-    - "*"
+      - "*"
 
 pr:
   branches:
     include:
-    - "*"
+      - "*"
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.x'
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: "3.x"
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      echo "Testing Azure DevOps task"
-      echo "Branch: $(Build.SourceBranch)"
-      python --version
-      ls -la
+  - task: Bash@3
+    inputs:
+      targetType: "inline"
+      script: |
+        echo "Testing Azure DevOps task"
+        echo "Branch: $(Build.SourceBranch)"
+        python --version
+        ls -la
 
-- script: |
-    python -m pip install --upgrade pip
-  pip install humanize==4.10.0
-  displayName: Install dependencies
+  - script: |
+      python -m pip install --upgrade pip
+      pip install humanize==4.10.0
+    displayName: Install dependencies
 
-- script: python app.py
-  displayName: Run hello world app
+  - script: python app.py
+    displayName: Run hello world app
