@@ -18,8 +18,13 @@ steps:
 
   - script: |
       python -m pip install --upgrade pip
-      pip install humanize==4.10.0
+      pip install -r dependencies.txt
     displayName: Install dependencies
+
+  - script: |
+      python -m pip install pip-audit
+      pip-audit -r dependencies.txt
+    displayName: Security scan dependencies
 
   - task: Bash@3
     inputs:
