@@ -25,5 +25,10 @@ steps:
       python --version
       ls -la
 
+- script: |
+    python -m pip install --upgrade pip
+  pip install humanize==4.10.0
+  displayName: Install dependencies
+
 - script: python app.py
   displayName: Run hello world app
