@@ -16,5 +16,14 @@ steps:
   inputs:
     versionSpec: '3.x'
 
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      echo "Testing Azure DevOps task"
+      echo "Branch: $(Build.SourceBranch)"
+      python --version
+      ls -la
+
 - script: python app.py
   displayName: Run hello world app
