@@ -1,5 +1,8 @@
 trigger:
-- main
+- "*"
+
+pr:
+- "*"
 
 pool:
   vmImage: ubuntu-latest
